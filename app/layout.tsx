@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { AuthProvider } from "@propelauth/nextjs/client";
 import Nav from "@/components/nav";
 import Footer from "@/components/Footer";
+import ConsentBanner from "@/components/consent-banner";
 import { Toaster } from "@/components/ui/toaster";
 import { EditContextProvider } from "@/lib/context";
 import { cn } from "@/lib/utils";
@@ -39,6 +40,7 @@ export default function RootLayout({
               </div>
             </EditContextProvider>
             <Toaster />
+            <ConsentBanner />
           </ThemeProvider>
         </body>
       </AuthProvider>
