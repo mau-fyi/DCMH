@@ -54,9 +54,6 @@ export default function NavAvatar() {
             <DropdownMenuItem asChild>
               <Link href="/admin/manage-users">Manage Users</Link>
             </DropdownMenuItem>
-            <DropdownMenuItem asChild>
-              <Link href="/admin/email-list">Email List</Link>
-            </DropdownMenuItem>
 
             <DropdownMenuSeparator />
           </>
