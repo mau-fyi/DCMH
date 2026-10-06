@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Footer = () => {
   return (
     <footer className="footer p-10 bg-secondary dark:bg-secondary text-secondary-content dark:text-secondary-content">
@@ -27,6 +29,9 @@ const Footer = () => {
         >
           Volunteer
         </a>
+        <Link className="link link-hover" href="/privacy">
+          Privacy Policy
+        </Link>
       </nav>
       <nav>
         <h6 className="footer-title">Made with &#128153; by:</h6>

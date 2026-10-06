@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Button } from "./ui/button";
 import {
   getConsent,
@@ -9,6 +11,7 @@ import {
 } from "@/lib/analytics";
 
 const ConsentBanner = () => {
+  const pathname = usePathname();
   const [needsConsent, setNeedsConsent] = useState(false);
   const [needsGpcConsent, setNeedsGpcConsent] = useState(false);
 
@@ -26,7 +29,9 @@ const ConsentBanner = () => {
     setNeedsGpcConsent(false);
   };
 
-  if (!needsConsent && !needsGpcConsent) return null;
+  // The privacy page has its own consent toggle.
+  if ((!needsConsent && !needsGpcConsent) || pathname === "/privacy")
+    return null;
 
   return (
     <div
@@ -37,7 +42,10 @@ const ConsentBanner = () => {
       <p className="max-w-2xl text-sm">
         {needsGpcConsent
           ? "Last time you visited, you allowed analytics. Your browser now sends a Global Privacy Control signal, so analytics are off. Would you like to turn them back on?"
-          : "May we count your visit? We use anonymous analytics to see how many people visit. Nothing is collected unless you allow it."}
+          : "May we count your visit? We use anonymous analytics to see how many people visit. Nothing is collected unless you allow it."}{" "}
+        <Link className="link" href="/privacy">
+          Privacy Policy
+        </Link>
       </p>
       <div className="flex gap-2">
         <Button variant="outline" onClick={() => choose(false)}>
