@@ -34,7 +34,6 @@ export default function RootLayout({
               disableTransitionOnChange
             >
               <EditContextProvider>
-                {/* <PostHogPageView /> */}
                 <div className="min-h-screen flex flex-col">
                   <Nav />
                   <div className="flex-1">{children}</div>
