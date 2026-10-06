@@ -19,10 +19,10 @@ const ItemCard = ({ item, children }: { item: Item; children: ReactNode }) => {
       </div>
       <CardContent className="p-4">
         <h3 className="font-semibold text-lg mb-2">{item.name}</h3>
-        <p className="text-sm text-gray-600 mb-4">{item.description}</p>
+        <p className="text-sm text-muted-foreground mb-4">{item.description}</p>
         <div className="space-y-2">
           <Progress value={(item.quantity / item.targetQuantity) * 100} />
-          <p className="text-sm text-gray-600">
+          <p className="text-sm text-muted-foreground">
             Donation Goal: {item.quantity}/{item.targetQuantity}
           </p>
         </div>

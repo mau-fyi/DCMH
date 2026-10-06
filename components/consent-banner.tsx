@@ -51,7 +51,9 @@ const ConsentBanner = () => {
         <Button variant="outline" onClick={() => choose(false)}>
           Decline
         </Button>
-        <Button onClick={() => choose(true)}>Allow</Button>
+        <Button className="text-primary-content" onClick={() => choose(true)}>
+          Allow
+        </Button>
       </div>
     </div>
   );
