@@ -10,14 +10,19 @@ export default async function Page(props: {
     tab?: string;
   }>;
 }) {
-  const searchParams = await props.searchParams;
-  const description = await getDescription();
-  const activeCategory = searchParams.tab || "PRIORITY_ITEMS";
-  const items =
-    activeCategory === "PRIORITY_ITEMS"
-      ? await fetchPriorityItems()
-      : await fetchItems(activeCategory);
-  const categories = await getCategories();
+    const activeCategoryPromise = props.searchParams.then((params) => params.tab || "PRIORITY_ITEMS");
+    const itemsPromise = activeCategoryPromise.then((category) =>
+      category === "PRIORITY_ITEMS" ? fetchPriorityItems() : fetchItems(category)
+    );
+    const categoriesPromise = getCategories();
+    const descriptionPromise = getDescription();
+
+    const [activeCategory, items, categories, description] = await Promise.all([
+      activeCategoryPromise,
+      itemsPromise,
+      categoriesPromise,
+      descriptionPromise,
+    ]);
 
   return (
     <main className="container mx-auto p-4">
