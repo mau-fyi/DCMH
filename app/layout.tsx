@@ -5,10 +5,10 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { AuthProvider } from "@propelauth/nextjs/client";
 import Nav from "@/components/nav";
 import Footer from "@/components/Footer";
+import ConsentBanner from "@/components/consent-banner";
 import { Toaster } from "@/components/ui/toaster";
 import { EditContextProvider } from "@/lib/context";
 import { cn } from "@/lib/utils";
-import { PHProvider } from "@/lib/analytics";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,26 +25,24 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <AuthProvider authUrl={process.env.NEXT_PUBLIC_AUTH_URL!}>
-        <PHProvider>
-          <body className={cn(inter.className, "bg-[#e0f2ff] dark:bg-black")}>
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="system"
-              enableSystem
-              disableTransitionOnChange
-            >
-              <EditContextProvider>
-                {/* <PostHogPageView /> */}
-                <div className="min-h-screen flex flex-col">
-                  <Nav />
-                  <div className="flex-1">{children}</div>
-                  <Footer />
-                </div>
-              </EditContextProvider>
-              <Toaster />
-            </ThemeProvider>
-          </body>
-        </PHProvider>
+        <body className={cn(inter.className, "bg-[#e0f2ff] dark:bg-black")}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <EditContextProvider>
+              <div className="min-h-screen flex flex-col">
+                <Nav />
+                <div className="flex-1">{children}</div>
+                <Footer />
+              </div>
+            </EditContextProvider>
+            <Toaster />
+            <ConsentBanner />
+          </ThemeProvider>
+        </body>
       </AuthProvider>
     </html>
   );

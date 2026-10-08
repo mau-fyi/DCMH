@@ -41,6 +41,7 @@ const RichTextEditor = ({
       }),
     ],
     content: content,
+    immediatelyRender: false, // required with SSR; avoids hydration mismatch
     onUpdate: ({ editor }) => {
       onChange(editor.getHTML());
     },
