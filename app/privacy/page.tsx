@@ -99,7 +99,12 @@ const PrivacyPage = () => {
         <p>
           For more information about your rights and how your information is
           used, please see the{" "}
-          <a href="https://daviscommunitymeals.org/privacy/">
+          <a
+            className="link"
+            target="_blank"
+            rel="noreferrer"
+            href="https://daviscommunitymeals.org/privacy/"
+          >
             DCMH website privacy policy
           </a>
           .
