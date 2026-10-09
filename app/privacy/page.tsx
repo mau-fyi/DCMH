@@ -9,7 +9,7 @@ const PrivacyPage = () => {
   return (
     <main className="container max-w-3xl space-y-6 py-10 [&_h2]:text-xl [&_h2]:font-bold [&_ul]:list-disc [&_ul]:space-y-1 [&_ul]:pl-6">
       <h1 className="text-3xl font-bold">Privacy Policy</h1>
-      <p>Effective October 5, 2026.</p>
+      <p>Effective October 9, 2026.</p>
       <p>
         This site is run by Davis Community Meals and Housing (DCMH) to show
         which pantry items we need. This policy explains what information the
@@ -58,8 +58,8 @@ const PrivacyPage = () => {
         <ul>
           <li>
             <strong>Login cookies</strong> (<code>__pa_at</code>,{" "}
-            <code>__pa_rt</code>, <code>__pa_org_id</code>): set by our login
-            provider,{" "}
+            <code>__pa_rt</code>, <code>__pa_org_id</code>,{" "}
+            <code>__pa_state</code>): set by our login provider,{" "}
             <a
               className="link"
               href="https://www.propelauth.com/privacy-policy"
@@ -90,8 +90,19 @@ const PrivacyPage = () => {
       <section className="space-y-3">
         <h2>Sharing</h2>
         <p>
-          We do not sell or share your personal information for advertising. We
-          only use the service providers named above to run this site.
+          We do not sell or share your personal information for advertising.
+        </p>
+      </section>
+
+      <section className="space-y-3">
+        <h2>For more information</h2>
+        <p>
+          For more information about your rights and how your information is
+          used, please see the{" "}
+          <a href="https://daviscommunitymeals.org/privacy/">
+            DCMH website privacy policy
+          </a>
+          .
         </p>
       </section>
 
